@@ -5,7 +5,7 @@ module alu (
     output logic [31:0] result,
     output logic        zero
 );
-  localparam logic [2:0] ALU_ADD = '0;
+  localparam logic [2:0] ALU_ADD = 3'd0;
   localparam logic [2:0] ALU_SUB = 3'd1;
   localparam logic [2:0] ALU_AND = 3'd2;
   localparam logic [2:0] ALU_OR = 3'd3;
