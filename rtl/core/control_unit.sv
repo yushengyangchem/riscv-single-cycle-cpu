@@ -35,16 +35,11 @@ module control_unit (
 
     case (opcode)
       7'b0010011: begin  // addi rd, rs1, imm
-        reg_write   = 1'b1;
-        alu_src     = 1'b1;
-        result_src  = RES_ALU;
-        alu_control = ALU_ADD;
-        imm_type    = IMM_I;
+        reg_write = 1'b1;
+        alu_src   = 1'b1;
       end
       7'b0110011: begin  // add rd, rs1, rs2 & sub rd, rs1, rs2
-        reg_write  = 1'b1;
-        result_src = RES_ALU;
-        imm_type   = IMM_I;
+        reg_write = 1'b1;
         if ({funct7, funct3} == 10'b0100000_000) begin
           alu_control = ALU_SUB;
         end else begin
@@ -52,17 +47,14 @@ module control_unit (
         end
       end
       7'b0000011: begin  // lw rd, imm(rs1)
-        reg_write   = 1'b1;
-        alu_src     = 1'b1;
-        result_src  = RES_MEM;
-        alu_control = ALU_ADD;
-        imm_type    = IMM_I;
+        reg_write  = 1'b1;
+        alu_src    = 1'b1;
+        result_src = RES_MEM;
       end
       7'b0100011: begin  // sw rs2, imm(rs1)
-        alu_src     = 1'b1;
-        mem_write   = 1'b1;
-        alu_control = ALU_ADD;
-        imm_type    = IMM_S;
+        alu_src   = 1'b1;
+        mem_write = 1'b1;
+        imm_type  = IMM_S;
       end
       7'b1100011: begin  // beq rs1, rs2, label
         branch      = 1'b1;
