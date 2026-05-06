@@ -32,6 +32,5 @@ module register_file (
     if (we && (rd != '0)) begin
       regs[rd] <= wd;
     end
-    regs[0] <= '0;
   end
 endmodule
