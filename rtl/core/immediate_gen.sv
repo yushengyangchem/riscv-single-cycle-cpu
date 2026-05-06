@@ -3,7 +3,7 @@ module immediate_gen (
     input  logic [ 2:0] imm_type,
     output logic [31:0] imm
 );
-  localparam logic [2:0] IMM_I = '0;
+  localparam logic [2:0] IMM_I = 3'd0;
   localparam logic [2:0] IMM_S = 3'd1;
   localparam logic [2:0] IMM_B = 3'd2;
   localparam logic [2:0] IMM_J = 3'd3;
