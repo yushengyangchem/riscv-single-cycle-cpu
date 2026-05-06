@@ -48,11 +48,11 @@ module riscv_single_cycle_cpu_tb;
     $dumpfile("waves/riscv_single_cycle_cpu.vcd");
     $dumpvars(0, riscv_single_cycle_cpu_tb);
 
-    clk = '0;
+    clk = 1'b0;
     rst = 1'b1;
 
     repeat (2) @(posedge clk);
-    rst = '0;
+    rst = 1'b0;
 
     repeat (10) @(posedge clk);
     #1;
