@@ -21,7 +21,7 @@ module riscv_single_cycle_cpu_tb;
 
   always #5 clk = ~clk;
 
-  task check_final_state;
+  task automatic check_final_state;
     if (dbg_x3 !== 32'd12) begin
       $display("FAIL: expected x3=12, got %0d", dbg_x3);
       $finish_and_return(1);
