@@ -21,7 +21,6 @@ This repository is meant to help you understand:
 - how a CPU datapath is assembled from smaller modules
 - how control signals drive muxes and state updates
 - how one instruction completes in one clock cycle in a single-cycle design
-- how software concepts from `rv32-sim` map into hardware blocks
 - how to test a CPU with a small hand-written program
 
 ## Supported Instruction Subset
