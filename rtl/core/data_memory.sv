@@ -18,12 +18,12 @@ module data_memory (
   // Synchronous write
   always_ff @(posedge clk) begin
     if (we) begin
-      mem[addr[31:2]] <= wd;  // Word-aligned address
+      mem[addr[7:2]] <= wd;
     end
   end
 
   // Combinational read
-  assign rd = mem[addr[31:2]];
+  assign rd = mem[addr[7:2]];
 
   // Debug output: expose word 0 for testbench
   assign dbg_mem_word0 = mem[0];
