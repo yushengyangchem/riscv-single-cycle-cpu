@@ -20,5 +20,5 @@ module instruction_memory (
     rom[8] = 32'h0000006f;  // jal  x0, 0
   end
 
-  assign instruction = rom[addr[31:2]];
+  assign instruction = rom[addr[7:2]];
 endmodule
