@@ -10,6 +10,7 @@ module alu (
   localparam logic [2:0] ALU_AND = 3'd2;
   localparam logic [2:0] ALU_OR = 3'd3;
 
+  // 1. Main ALU Datapath (Calculates the 32-bit result)
   always_comb begin
     case (alu_control)
       ALU_ADD: result = a + b;
@@ -20,5 +21,18 @@ module alu (
     endcase
   end
 
-  assign zero = (result == '0);
+  // 2. Specific Zero Calculation (The "Fast Path")
+  always_comb begin
+    case (alu_control)
+      // FAST PATH: Instead of waiting for subtraction, just check if they are equal!
+      ALU_SUB: zero = (a == b);
+
+      // For other operations, calculate zero directly from the math
+      ALU_ADD: zero = ((a + b) == '0);
+      ALU_AND: zero = ((a & b) == '0);
+      ALU_OR:  zero = ((a | b) == '0);
+      default: zero = 1'b0;
+    endcase
+  end
+
 endmodule
